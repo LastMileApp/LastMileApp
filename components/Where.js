@@ -41,7 +41,7 @@ function Where ({ navigation })  {
         onPress={() => navigation.navigate('Details')}
       /> */}
       {/* <Pressable style={styles.button} onPress={onPress}></Pressable> */}
-      <Pressable style={styles.button} onPress={() => navigation.navigate('Packages', { currentLocation: location,})}  >
+      <Pressable style={styles.button} onPress={() => navigation.navigate('Packages', { currentLocation: location, endLocation:endLocation})}  >
         <Text style={styles.text}>Go</Text>
         </Pressable>
     </View>
