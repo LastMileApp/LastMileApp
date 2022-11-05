@@ -12,7 +12,7 @@ export function CartProvider(props) {
           return [...prevItems, {
               id,
               qty: 1,
-              product,
+              packages,
               totalPrice: packages.price 
           }];
       }
