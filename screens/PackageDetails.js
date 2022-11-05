@@ -8,7 +8,7 @@ import {
   Button, 
   StyleSheet
   } from 'react-native';
-import { getPackages } from '../services/PackageService.js';
+import { getPackages } from '../services/PackageServices.js';
 import { CartContext } from '../CartContext';
 export function PackageDetails({route}) {
   const { packageId } = route.params;
@@ -17,7 +17,7 @@ export function PackageDetails({route}) {
   const { addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
-    setProduct(getPackages(packageId));
+    setPackage(getPackages(packageId));
   });
 
   function onAddToCart() {

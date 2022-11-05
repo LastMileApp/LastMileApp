@@ -24,6 +24,6 @@ const PACKAGES = [
 export function getPackages() {
     return PACKAGES;
 }
-export function getPackages(id) {
+export function getPackage(id) {
     return PACKAGES.find((packages) => (packages.id == id));
 }
