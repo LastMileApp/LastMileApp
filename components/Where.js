@@ -3,10 +3,27 @@ import { Pressable, View, Text, TextInput, StyleSheet, TouchableOpacity} from 'r
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import * as Location from 'expo-location'
 
 function Where ({ navigation })  {
     const [location, setLocation] = useState('');
+    const [endLocation, setEndLocation] = useState('');
+    useEffect(() => {
+        (async () => {
+            let { status } = await Location.requestForegroundPermissionsAsync();
+            if (status !== 'granted') {
+                return;
+            }
+
+            let location = await Location.getCurrentPositionAsync({
+                accuracy: Location.Accuracy.Balanced,
+                enableHighAccuracy: true,
+                timeInterval: 5
+            });
+            setLocation(location);
+        })();
+    }, []);
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Where are you going?</Text>
@@ -15,7 +32,7 @@ function Where ({ navigation })  {
         <TextInput
           style = {styles.TextIn}
           placeholder = "Full Address"
-          onChangeText={(location) => setLocation(location)} />
+          onChangeText={(endLocation) => setEndLocation(endLocation)} />
         
       </View>
 
