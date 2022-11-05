@@ -1,6 +1,8 @@
 import React from 'react';
+
 import {Text, Image, View, StyleSheet, TouchableOpacity} from 'react-native';
-export function Product({name, price, image, onPress}) {
+
+export function Package({name, price, image, onPress}) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image
