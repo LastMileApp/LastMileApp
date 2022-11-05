@@ -41,7 +41,8 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {Where} from './components/Where';
+import Where from './components/Where.js';
+import PackagesList from './components/Packages.js'
 
 
 const Stack = createNativeStackNavigator();
@@ -50,8 +51,24 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Location" component={Where} />
+        <Stack.Screen name="Location" component={Where}
+        options={({ navigation }) => ({
+          title: 'Location',
+        })}/> 
+        <Stack.Screen name="Packages" component={PackagesList}
+        options={({ navigation }) => ({
+          title: 'Packages',
+        })}/> 
+        {/* <Stack.Screen name="Packages" component={PackagesList}
+        options={({ navigation }) => ({
+          title: 'Packages',
+        })}/> 
+        <Stack.Screen name="PackageDetails" component={PackageDetailsScreen}
+        options={({ navigation }) => ({
+          title: 'PackageDetails',
+        })}/>  */}
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 }
