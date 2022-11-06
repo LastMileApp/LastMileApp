@@ -26,7 +26,6 @@ function getAllShipments(){
 function getShipmentPackageData(shipment){
     return db.package[shipment.package_id];
 }
-fun
 export function getPossibleShipments(){
     let possible_shipments = [];
     let all_shipments = getAllShipments();
