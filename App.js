@@ -4,7 +4,6 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {Where} from './components/Where';
-import {loadShipments} from './services/shipments.js';
 
 
 const Stack = createNativeStackNavigator();
