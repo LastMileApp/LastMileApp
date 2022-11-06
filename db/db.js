@@ -1,4 +1,4 @@
-var data = {
+export const db = {
     "company": {
       "a": {
         "email address": "test@testcompanya.com",
