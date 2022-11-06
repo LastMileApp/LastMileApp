@@ -4,11 +4,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
+import {getLatLong} from '../services/maps.js'
 import * as Location from 'expo-location'
 
 function Where ({ navigation })  {
     const [location, setLocation] = useState('');
     const [endLocation, setEndLocation] = useState('');
+    const [endLocLatLon, setEndLocLatLon] = useState('');
+    async function actionsOnPress(endLocation){
+      let a = await getLatLong(endLocation);
+      console.log("aasdfadsf");
+      console.log(a);
+
+      navigation.navigate('Packages', { currentLocation: location, endLocation:endLocation});
+    }
     useEffect(() => {
         (async () => {
             let { status } = await Location.requestForegroundPermissionsAsync();
@@ -25,6 +34,14 @@ function Where ({ navigation })  {
             setLocation(location);
         })();
     }, []);
+
+    // useEffect(() => {
+    //     (async () => {
+    //         let endLocLatLon = await getLatLong(endLocation);
+    //         // setEndLocLatLon(endLocLatLon);
+    //     })();
+    // });
+        
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Where are you going?</Text>
@@ -42,7 +59,7 @@ function Where ({ navigation })  {
         onPress={() => navigation.navigate('Details')}
       /> */}
       {/* <Pressable style={styles.button} onPress={onPress}></Pressable> */}
-      <Pressable style={styles.button} onPress={() => navigation.navigate('Packages', { currentLocation: location, endLocation:endLocation})}  >
+      <Pressable style={styles.button} onPress={() => actionsOnPress(endLocation)}  >
         <Text style={styles.text}>Go</Text>
         </Pressable>
     </View>
