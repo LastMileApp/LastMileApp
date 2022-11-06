@@ -5,9 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
 import { getLatLong } from '../services/maps.js'
+
 import * as Location from 'expo-location'
 import MapView from 'react-native-maps';
-
+import {Marker} from 'react-native-maps';
 
 
 
@@ -43,8 +44,10 @@ function Where({ navigation }) {
 			});
 			console.log(location);
 			setLocation(location);
-			a={latitude:location.coords.latitude,longitude:location.coords.longitude,latitudeDelta: 0.0922,
-			longitudeDelta: 0.0421,};
+			a = {
+				latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922,
+				longitudeDelta: 0.0421,
+			};
 			setMapRegion(a);
 		})();
 	}, []);
@@ -73,10 +76,12 @@ function Where({ navigation }) {
 						style={{
 							alignSelf: 'stretch',
 							height: '100%',
-							flex:1
+							flex: 1
 						}}
-					region = {mapRegion}
-					/>
+						region={mapRegion}
+					>
+						<Marker coordinate={mapRegion} />
+					</MapView>
 				</View>
 				<View style={styles.containerButton}>
 					<Pressable style={styles.button} onPress={() => actionsOnPress(endLocation)}  >
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
 		height: 90,
 		fontSize: 35,
 		padding: 5,
-		marginTop:'15%'
+		marginTop: '15%'
 	},
 	container: {
 		flex: 1,
@@ -116,13 +121,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		width: '80%',
 		top: '20%',
-		marginBottom:'30%',
+		marginBottom: '30%',
 		bottom: '20%',
 		height: '10%',
 	},
 	containerButton: {
 		position: 'absolute',
-		marginBottom:10
+		marginBottom: 10
 	},
 	image: {
 		marginBottom: 50
@@ -134,7 +139,7 @@ const styles = StyleSheet.create({
 		width: "80%",
 		height: 80,
 		marginTop: '20%',
-		marginBottom:'10%',
+		marginBottom: '10%',
 		alignItems: "center",
 	},
 
