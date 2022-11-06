@@ -63,6 +63,7 @@ export async function getPossibleShipments(user_start, user_end){
     let all_shipments = getAllShipments();
     // console.log(all_shipments);
     for (const s in all_shipments){
+        console.log(s)
         const package_start_lat = db["shipment"][s]["start_point"]["latitude"];
         const package_start_long = db["shipment"][s]["start_point"]["longitude"];
         
@@ -106,7 +107,7 @@ export async function getPossibleShipments(user_start, user_end){
             shipment_data["user_end"] = user_end;
             shipment_data["package_start"] = package_start;
             shipment_data["package_end"] = package_end;
-            
+
             possible_shipments.push(shipment_data);
         }
     }

@@ -17,7 +17,7 @@ export function Package({ collateral, award, timeDiff, mileDiff, image, package_
                 <Text style={styles.name}> Collateral: ${collateral} </Text>
                 <Text style={styles.name}> Award: ${award} </Text>
                 <Text style={styles.name}> Total Time Difference: {timeDiff} minutes </Text>
-                <Text style={styles.name}> Total Mile Difference: {mileDiff} minutes </Text>
+                <Text style={styles.name}> Total Km Difference: {mileDiff} kilometers </Text>
             </View>
 
         </TouchableOpacity>
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
         marginVertical: 20,
         alignItems: 'center',   
         paddingTop: 20,
+        height:400
     },
     image: {
         height: 300,

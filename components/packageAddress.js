@@ -19,7 +19,7 @@ export function PackageAddress({ route, navigation }) {
 	const [package_start_address, setPackageStartAddress] = useState('');
 	const [package_end_address, setPackageEndAddress] = useState('');
 
-    useEffect(() => {
+    useEffect(() => {  
         setPackageSingle(packagee);
         // console.log(pkg);
 		setCurrentBalance(getBalance());
@@ -45,12 +45,14 @@ export function PackageAddress({ route, navigation }) {
 	if(currentBalance>collateral ){
 
 		return (
-			<View>
-				<Text>Pick up package from {package_start_address}</Text> 
-				<Text>Drop off to {package_end_address}</Text> 
-				<Pressable style={style.button} onPress={() => navigation.goBack()}  >
-                            <Text style={style.text}>Send Proof of Delivery</Text>
-                </Pressable>
+			<View style={style.mainBody}>
+				<Text style = {style.mainText2}>Pick up package from {package_start_address} </Text> 
+				<Text style = {style.mainText2}>Drop off to {package_end_address}</Text> 
+				<View style = {style.buttonContainer}>
+				<TouchableOpacity style={style.buttonMain} onPress={() => navigation.goBack()}  >
+                            <Text style={style.textButton}>Send Proof of Delivery</Text>
+                </TouchableOpacity>
+				</View>
 			</View>
 
 	    );
@@ -58,11 +60,13 @@ export function PackageAddress({ route, navigation }) {
 	
 	else{
 		return(
-			<View>
-				<Text>Not enough balance</Text>
-				<Pressable style={style.button} onPress={() => navigation.goBack()}  >
-                            <Text style={style.text}>Go Back</Text>
-                </Pressable>
+			<View style = {style.mainBody}>
+				<Text style = {style.mainText}>Not enough balance</Text>
+				<View style = {style.buttonContainer}>
+				<TouchableOpacity style={style.buttonMain} onPress={() => navigation.goBack()}  >
+                            <Text style={style.textButton}>Go Back</Text>
+                </TouchableOpacity>
+				</View>
 			</View>
 		);
 	}
@@ -76,4 +80,45 @@ const style = StyleSheet.create({
 		paddingVertical: 8,
 		marginHorizontal: 8,
 	},
+	mainBody: {
+		alignItems: 'center'
+	},
+	mainText: {
+		marginTop: 275,
+		fontSize: 35,
+        fontWeight: '600',
+        marginBottom: 8,
+	},
+	buttonMain: {
+		flex:1,
+		alignSelf:'stretch',
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		borderWidth: 1,
+		height: 50,
+		borderColor: '#007aff',
+		marginLeft: 5,
+		marginRight: 5 
+	},
+	
+	buttonContainer: {
+		width: 150,
+		height: 60
+		
+	},
+
+	textButton: {
+		alignSelf: 'center',
+		color: '#007aff',
+		fontSize: 16,
+		paddingTop: 20,
+		paddingBottom: 90
+	},
+	mainText2: {
+		marginTop: 50,
+		fontSize: 20,
+        fontWeight: '600',
+        marginBottom: 8,
+	}
+
 });

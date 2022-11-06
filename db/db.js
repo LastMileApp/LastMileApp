@@ -24,6 +24,11 @@ export const db = {
 			"email address": "test@testcompanyaa.com",
 			"name": "Test Company Aa",
 			"company_img": "https://graphicdesignjunction.com/wp-content/uploads/2017/12/best-logos-2017-1.jpg"
+		},
+		"e": {
+			"email address": "e@testcompanye.com",
+			"name": "Test Company E",
+			"company_img": "https://cdn2.hubspot.net/hubfs/53/image8-2.jpg" 
 		}
 	},
 	"completed_shipment": {
@@ -51,6 +56,10 @@ export const db = {
 		"d": {
 			"collateral": 500,
 			"name": "Test Package D"
+		},
+		"e": {
+			"collateral": 20,
+			"name": "Test Package E"
 		}
 	},
 	"shipment": {
@@ -123,6 +132,20 @@ export const db = {
 				"latitude": 40.9181729,
 				"longitude": -74.0785197
 			}
+		},
+		"e": {
+			"award": 200,
+			"package_id": 'e',
+			"company_id": 'e',
+			"deliverer_id": "",
+			"end_point": {
+				"latitude": 40.7263681,
+				"longitude": -74.2106551
+			},
+			"start_point": {
+				"latitude": 40.74134,
+				"longitude": -74.180283
+			}
 		}
 	},
 	"user": {
@@ -162,6 +185,7 @@ export const db = {
 			"lastName": 'B',
 			"balance": 1000
 		}
+
 
 	}
 }

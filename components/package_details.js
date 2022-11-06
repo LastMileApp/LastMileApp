@@ -48,7 +48,7 @@ export function PackageDetails({ route, navigation }) {
                     <Text style={style.price}>Total Collateral Needed to Take: ${packageSingle.collateral}</Text>
                     <Text style={style.price}>Award for Package Drive:  ${packageSingle.award}</Text>
                     <Text style={style.price}>Extra Time Needed to Drive: {packageSingle.added_time} </Text>
-                    <Text style={style.price}>Extra Miles Needed to Drive: {packageSingle.added_miles} </Text>
+                    <Text style={style.price}>Extra Km Needed to Drive: {packageSingle.added_miles} </Text>
                     {/* <View style={style.containerButton}>
                     <Pressable style={style.button} onPress={() => navigation.navigate('PackageGo', { package1: packageSingle })}  >
                         <Text style={style.text}>Go</Text>
