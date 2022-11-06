@@ -16,19 +16,19 @@ export const db = {
     },
     "package": {
       "a": {
-        "Collateral": 1000,
+        "collateral": 1000,
         "name": "Test Package A"
       },
       "b": {
-        "Collateral": 1500,
+        "collateral": 1500,
         "name": "Test Package B"
       },
       "c": {
-        "Collateral": 2000,
+        "collateral": 2000,
         "name": "Test Package C"
       },
       "d": {
-        "Collateral": 500,
+        "collateral": 500,
         "name": "Test Package D"
       }
     },
@@ -36,7 +36,7 @@ export const db = {
       "a": {
         "award": 50,
         "package_id": 'a',
-        "company_id": 1,
+        "company_id": 'a',
         "deliverer_id": "",
         "end_point": {
           "latitude": 40.87751,
@@ -50,7 +50,7 @@ export const db = {
       "b": {
         "award": 100,
         "package_id": 'b',
-        "company_id": 2,
+        "company_id": 'b',
         "deliverer_id": "",
         "end_point": {
           "latitude": 40.3466502,
@@ -64,7 +64,7 @@ export const db = {
       "c": {
         "award": 150,
         "package_id": 'c',
-        "company_id": 3,
+        "company_id": 'c',
         "deliverer_id": "",
         "end_point": {
           "latitude": 41.0815852,
@@ -78,7 +78,7 @@ export const db = {
       "d": {
         "award": 200,
         "package_id": 'd',
-        "company_id": 4,
+        "company_id": 'd',
         "deliverer_id": "",
         "end_point": {
           "latitude": 40.5847578,
