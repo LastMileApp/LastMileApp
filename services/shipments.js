@@ -34,12 +34,20 @@ function getProperFormattingLatLon(lat, lon){
 }
 function getBasicShipmentData(shipment){
     const company_id = db["shipment"][shipment]["company_id"]
+    console.log(company_id)
     return {
         "collateral": db["package"][shipment]["collateral"],
         "award": db["shipment"][shipment]["award"],
         "company_name": db["company"][company_id]["name"],
+        "company_email": db["company"][company_id]["email"],
+        "company_img": db["company"][company_id]["company_img"],
         "added_miles": 0,
-        "added_time": 0
+        "added_time": 0,
+        "package_id": shipment ,
+        "user_start":"",
+        "user_end":"",
+        "package_start":"",
+        "package_end":""
     }
 }
 export async function getPossibleShipments(user_start, user_end){
@@ -92,8 +100,13 @@ export async function getPossibleShipments(user_start, user_end){
         // console.log(route_1_t, route_2_t);
         if (Math.abs(route_2_m - route_1_m) <= BUFFER){
             const shipment_data = getBasicShipmentData(s);
-            shipment_data["added_miles"] = Math.abs(route_2_m - route_1_m);
-            shipment_data["added_time"] = Math.abs(route_2_t - route_1_t);
+            shipment_data["added_miles"] = Math.abs(route_2_m - route_1_m).toFixed(2);
+            shipment_data["added_time"] = Math.abs(route_2_t - route_1_t).toFixed(2);
+            shipment_data["user_start"] = user_start;
+            shipment_data["user_end"] = user_end;
+            shipment_data["package_start"] = package_start;
+            shipment_data["package_end"] = package_end;
+            
             possible_shipments.push(shipment_data);
         }
     }

@@ -15,6 +15,22 @@ export async function getLatLong(str) {
         });
 }
 
+export async function getAddress(str) {
+    let arr = str.split(",");
+    let lat = arr[0];
+    let lon = arr[1];
+    url = 'https://api.geoapify.com/v1/geocode/reverse?lat=' + lat + '&lon=' + lon + '&apiKey=' + GEO_API_KEY;
+    // console.log(url);
+    return fetch(url, {
+        method: 'GET',
+    }).then(response => response.json()) // returns promise
+        .then(responseJson => {
+            // console.log(responseJson);
+            const a = responseJson["features"][0]["properties"]["formatted"];
+            return a;
+        });
+}
+
 export async function getMileage(start, end) {
     url = "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=" + start + "&destinations=" + end + "&travelMode=driving&key=" + BING_API_KEY;
     // console.log(url);

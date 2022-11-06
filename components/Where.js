@@ -38,7 +38,7 @@ function Where({ navigation }) {
 		// console.log("endLocLatLon");
 		// console.log(endLocLatLon);
 
-		navigation.navigate('Packages', { currentLocation: start, endLocLatLon: end });
+		navigation.navigate('PackagesList', { currentLocation: start, endLocLatLon: end });
 	}
 	useEffect(() => {
 		(async () => {

@@ -42,8 +42,9 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Where from './components/Where.js';
-import PackagesList from './components/Packages.js'
-
+import PackagesList from './components/PackagesList.js'
+import { PackageDetails } from './components/package_details.js';
+import {PackageAddress} from './components/packageAddress.js'
 
 const Stack = createNativeStackNavigator();
 
@@ -55,18 +56,18 @@ function App() {
         options={({ navigation }) => ({
           title: 'Location',
         })}/> 
-        <Stack.Screen name="Packages" component={PackagesList}
+        <Stack.Screen name="PackagesList" component={PackagesList}
         options={({ navigation }) => ({
           title: 'Packages',
         })}/> 
-        {/* <Stack.Screen name="Packages" component={PackagesList}
+        <Stack.Screen name="PackageDetails" component={PackageDetails}
         options={({ navigation }) => ({
-          title: 'Packages',
-        })}/> 
-        <Stack.Screen name="PackageDetails" component={PackageDetailsScreen}
+          title: 'Package Details',
+        })}/>  
+        <Stack.Screen name="PackageGo" component={PackageAddress}
         options={({ navigation }) => ({
-          title: 'PackageDetails',
-        })}/>  */}
+          title: 'Package Last Mile',
+        })}/>  
       </Stack.Navigator>
 
     </NavigationContainer>
