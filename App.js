@@ -43,7 +43,7 @@ function App() {
           })} />
         <Stack.Screen name="PackageGo" component={PackageAddress}
           options={({ navigation }) => ({
-            title: 'Package Last Mile',
+            title: 'Package Last Mile'
           })} />
       </Stack.Navigator>
 

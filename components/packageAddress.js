@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { getPossibleShipments } from '../services/shipments';
 import {getBalance} from '../services/authentication.js'
 import { getAddress } from '../services/maps.js';
+import {Icon} from 'react-native-elements'
 export function PackageAddress({ route, navigation }) {
 	const {packagee} = route.params;
 	// console.log(route.Fparams);
@@ -18,6 +19,9 @@ export function PackageAddress({ route, navigation }) {
 	const [currentBalance, setCurrentBalance] = useState({});
 	const [package_start_address, setPackageStartAddress] = useState('');
 	const [package_end_address, setPackageEndAddress] = useState('');
+
+	const [currentAddress, setCurrentAddress] = useState('');
+	const [finalAddress, setFinalAddress] = useState('');
 
     useEffect(() => {  
         setPackageSingle(packagee);
@@ -39,6 +43,18 @@ export function PackageAddress({ route, navigation }) {
 			console.log("end_address", end_address);
 		})();
 	}, []);
+	useEffect(() => {
+		(async () => {
+			let currentAddress = await getAddress(packagee.user_start);
+			setCurrentAddress(currentAddress);
+		})();
+	});
+	useEffect(() => {
+		(async () => {
+			let finalAddress = await getAddress(packagee.user_end);
+			setFinalAddress(finalAddress);
+		})();
+	});
 
 	
 	
@@ -46,8 +62,14 @@ export function PackageAddress({ route, navigation }) {
 
 		return (
 			<View style={style.mainBody}>
-				<Text style = {style.mainText2}>Pick up package from {package_start_address} </Text> 
-				<Text style = {style.mainText2}>Drop off to {package_end_address}</Text> 
+				<Text style = {style.mainText2}>{currentAddress} </Text> 
+				<Icon name="arrow-down" size={50} color="black" type="entypo" />
+				<Text style = {style.mainText2}>{package_start_address} </Text> 
+				
+				<Icon name="arrow-down" size={50} color="black" type="entypo" />
+				<Text style = {style.mainText2}>{package_end_address}</Text> 
+				<Icon name="arrow-down" size={50} color="black" type="entypo" />
+				<Text style = {style.mainText2}>{finalAddress}</Text> 
 				<View style = {style.buttonContainer}>
 				<TouchableOpacity style={style.buttonMain} onPress={() => navigation.goBack()}  >
                             <Text style={style.textButton}>Send Proof of Delivery</Text>
@@ -119,6 +141,12 @@ const style = StyleSheet.create({
 		fontSize: 20,
         fontWeight: '600',
         marginBottom: 8,
+		marginLeft: 5,
+		marginRight: 5,
+		borderRadius: 10,
+		borderTopRightRadius:  60,
+		borderBottomRightRadius:  60,
+		borderColor: 'blue',
 	}
 
 });
