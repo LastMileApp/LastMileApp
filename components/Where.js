@@ -21,6 +21,7 @@ function Where ({ navigation })  {
                 enableHighAccuracy: true,
                 timeInterval: 5
             });
+            console.log(location);
             setLocation(location);
         })();
     }, []);
