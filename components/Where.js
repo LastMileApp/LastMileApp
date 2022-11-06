@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
 import { getLatLong } from '../services/maps.js'
-
 import * as Location from 'expo-location'
 import MapView from 'react-native-maps';
 import {Marker} from 'react-native-maps';
@@ -25,10 +24,21 @@ function Where({ navigation }) {
 	const [endLocLatLon, setEndLocLatLon] = useState('');
 	async function actionsOnPress(endLocation) {
 		let a = await getLatLong(endLocation);
-		console.log("aasdfadsf");
-		console.log(a);
+		end = a["coords"]["lat"] + "," + a["coords"]["lon"];
+		setEndLocLatLon(end);
+		start = location["coords"]["latitude"] + "," + location["coords"]["longitude"];
+		setLocation(start);
 
-		navigation.navigate('Packages', { currentLocation: location, endLocation: endLocation });
+		// console.log("start");
+		// console.log(start);
+		// console.log("end");
+		// console.log(end);
+		// console.log("location");
+		// console.log(location);
+		// console.log("endLocLatLon");
+		// console.log(endLocLatLon);
+
+		navigation.navigate('Packages', { currentLocation: start, endLocLatLon: end });
 	}
 	useEffect(() => {
 		(async () => {
@@ -42,7 +52,7 @@ function Where({ navigation }) {
 				enableHighAccuracy: true,
 				timeInterval: 5
 			});
-			console.log(location);
+			// console.log(location);
 			setLocation(location);
 			a = {
 				latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922,
