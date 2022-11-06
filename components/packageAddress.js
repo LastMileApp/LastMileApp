@@ -63,17 +63,17 @@ export function PackageAddress({ route, navigation }) {
 		return (
 			<View style={style.mainBody}>
 				<Text style = {style.mainText2}>{currentAddress} </Text> 
-				<Icon name="arrow-down" size={50} color="black" type="entypo" />
+				<Icon name="arrow-down" size={50} color="white" type="entypo" />
 				<Text style = {style.mainText2}>{package_start_address} </Text> 
 				
-				<Icon name="arrow-down" size={50} color="black" type="entypo" />
+				<Icon name="arrow-down" size={50} color="white" type="entypo" />
 				<Text style = {style.mainText2}>{package_end_address}</Text> 
-				<Icon name="arrow-down" size={50} color="black" type="entypo" />
+				<Icon name="arrow-down" size={50} color="white" type="entypo" />
 				<Text style = {style.mainText2}>{finalAddress}</Text> 
 				<View style = {style.buttonContainer}>
-				<TouchableOpacity style={style.buttonMain} onPress={() => navigation.goBack()}  >
-                            <Text style={style.textButton}>Send Proof of Delivery</Text>
-                </TouchableOpacity>
+				<Pressable style={style.button} onPress={() => navigation.goBack()}  >
+						<Text style={style.text}>Send Proof of Delivery</Text>
+				</Pressable>
 				</View>
 			</View>
 
@@ -85,9 +85,9 @@ export function PackageAddress({ route, navigation }) {
 			<View style = {style.mainBody}>
 				<Text style = {style.mainText}>Not enough balance</Text>
 				<View style = {style.buttonContainer}>
-				<TouchableOpacity style={style.buttonMain} onPress={() => navigation.goBack()}  >
-                            <Text style={style.textButton}>Go Back</Text>
-                </TouchableOpacity>
+				<Pressable style={style.button} onPress={() => navigation.goBack()}  >
+						<Text style={style.text}>Go Back</Text>
+				</Pressable>
 				</View>
 			</View>
 		);
@@ -95,21 +95,25 @@ export function PackageAddress({ route, navigation }) {
 }
 const style = StyleSheet.create({
 	packagesList: {
-		backgroundColor: '#f1f8ff',
+		backgroundColor: '#1a1d27',
 	},
 	packagesListContainer: {
-		backgroundColor: '#f1f8ff',
+		backgroundColor: '#1a1d27',
 		paddingVertical: 8,
 		marginHorizontal: 8,
 	},
 	mainBody: {
-		alignItems: 'center'
+		alignItems: 'center',
+		height:'100%',
+
+		backgroundColor: '#1a1d27',
 	},
 	mainText: {
 		marginTop: 275,
 		fontSize: 35,
         fontWeight: '600',
         marginBottom: 8,
+		color: '#fff',
 	},
 	buttonMain: {
 		flex:1,
@@ -128,17 +132,26 @@ const style = StyleSheet.create({
 		height: 60
 		
 	},
-
-	textButton: {
-		alignSelf: 'center',
-		color: '#007aff',
+	
+	text: {
 		fontSize: 16,
-		paddingTop: 20,
-		paddingBottom: 90
+		lineHeight: 21,
+		fontWeight: 'bold',
+		letterSpacing: 0.25,
+		color: 'black',
+	},
+	button: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		paddingVertical: 12,
+		paddingHorizontal: 32,
+		borderRadius: 4,
+		elevation: 3,
+		backgroundColor: '#20bbff',
 	},
 	mainText2: {
 		marginTop: 50,
-		fontSize: 20,
+		fontSize: 16,
         fontWeight: '600',
         marginBottom: 8,
 		marginLeft: 5,
@@ -147,6 +160,7 @@ const style = StyleSheet.create({
 		borderTopRightRadius:  60,
 		borderBottomRightRadius:  60,
 		borderColor: 'blue',
+		color:"white"
 	}
 
 });

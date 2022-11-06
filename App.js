@@ -32,18 +32,34 @@ function App() {
         <Stack.Screen name="Location" component={Where}
           options={({ navigation }) => ({
             title: 'Location',
+            headerStyle: {
+              backgroundColor: '#2a2d41',
+            },
+            headerTintColor: '#fff',
           })} />
         <Stack.Screen name="PackagesList" component={PackagesList}
           options={({ navigation }) => ({
             title: 'Packages',
+            headerStyle: {
+              backgroundColor: '#2a2d41',
+            },
+            headerTintColor: '#fff',
           })} />
         <Stack.Screen name="PackageDetails" component={PackageDetails}
           options={({ navigation }) => ({
             title: 'Package Details',
+            headerStyle: {
+              backgroundColor: '#2a2d41',
+            },
+            headerTintColor: '#fff',
           })} />
         <Stack.Screen name="PackageGo" component={PackageAddress}
           options={({ navigation }) => ({
-            title: 'Package Last Mile'
+            title: 'Package Last Mile',
+            headerStyle: {
+              backgroundColor: '#2a2d41',
+            },
+            headerTintColor: '#fff',
           })} />
       </Stack.Navigator>
 

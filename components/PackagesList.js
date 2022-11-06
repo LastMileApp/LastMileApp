@@ -40,10 +40,10 @@ export default function PackagesList({ route, navigation }) {
 }
 const styles = StyleSheet.create({
 	packagesList: {
-		backgroundColor: '#f1f8ff',
+		backgroundColor: '#1a1d27',
 	},
 	packagesListContainer: {
-		backgroundColor: '#f1f8ff',
+		backgroundColor: '#1a1d27',
 		paddingVertical: 8,
 		marginHorizontal: 8,
 	},

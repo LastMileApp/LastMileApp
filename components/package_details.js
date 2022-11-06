@@ -8,6 +8,7 @@ import { getPossibleShipments } from '../services/shipments';
 import { Package } from './package';
 import MapView from 'react-native-maps';
 import { Marker, Polyline } from 'react-native-maps';
+import { withTheme } from 'react-native-elements';
 export function PackageDetails({ route, navigation }) {
     const { pkg } = route.params;
     const name = pkg.collateral;
@@ -55,9 +56,10 @@ export function PackageDetails({ route, navigation }) {
                     </Pressable>
                     </View> */}
                 </View>
-                <View>
+                <View style={{backgroundColor: '#1a1d27'}}>
                     <View style={style.mapcontainer}>
                         <MapView
+                        userInterfaceStyle={'dark'}
                             style={{
                                 alignSelf: 'stretch',
                                 height: '100%',
@@ -95,7 +97,7 @@ export function PackageDetails({ route, navigation }) {
 
 const style = StyleSheet.create({
     card: {
-        backgroundColor: 'white',
+        backgroundColor: '#1a1d27',
         borderRadius: 16,
         shadowOpacity: 0.2,
         shadowRadius: 4,
@@ -108,6 +110,7 @@ const style = StyleSheet.create({
         marginVertical: 20,
     },
     containerMapAndButton: {
+        backgroundColor: '#1a1d27',
         flex: 1,
         marginBottom: 0,
         marginLeft: 0,
@@ -117,7 +120,8 @@ const style = StyleSheet.create({
     },
     containerButton: {
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        backgroundColor: 'white'
     },
     image: {
         height: 180,
@@ -125,6 +129,8 @@ const style = StyleSheet.create({
     },
     infoContainer: {
         padding: 16,
+        color:"white",
+        backgroundColor:"#1a1d27"
     },
     name: {
         fontSize: 22,
@@ -134,6 +140,7 @@ const style = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         marginBottom: 8,
+        color:"white",
     },
     description: {
         fontSize: 16,
@@ -142,12 +149,15 @@ const style = StyleSheet.create({
         marginBottom: 16,
     },
     mapcontainer: {
+        backgroundColor: '#1a1d27',
         height: '53%',
         marginBottom:20
     },
     containerButton: {
-        position: 'relative',
-        bottom: 5
+        backgroundColor: '#1a1d27',
+        position: 'absolute',
+        marginTop:280,
+        marginLeft: 150,
     },
     button: {
         alignItems: 'center',
@@ -156,7 +166,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: '#71b48d',
+        backgroundColor: '#fff',
     },
 
 

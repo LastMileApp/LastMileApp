@@ -22,7 +22,7 @@
 import {db} from "../db/db.js"
 import {getLatLong} from "../services/maps.js"
 import {getMileage, getTimeage} from "../services/maps.js"
-const BUFFER = 8.0467;
+const BUFFER = 14.48;
 function getAllShipments(){
     return db.shipment;
 }

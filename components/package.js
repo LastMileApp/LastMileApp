@@ -36,7 +36,7 @@ export function Package({ collateral, award, timeDiff, mileDiff, image, package_
 }
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#24283b',
         borderRadius: 16,
         shadowOpacity: 0.2,
         shadowRadius: 4,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     },
     bubble: {
         borderRadius: 25,
-        backgroundColor: "#eeeeee",
+        backgroundColor: "#55417d",
         width: 125,
         height: 50,
         marginRight: 15,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
     bubble2: {
         borderRadius: 25,
-        backgroundColor: "#eeeeee",
+        backgroundColor: "#55417d",
         width: 265,
         height: 50,
         position: 'relative',
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 'auto',
         width: "100%",
+        color:'white'
         // fontWeight: 'bold',
     },
     bubble_name_2: {
@@ -111,7 +112,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 'auto',
         width: "100%",
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'white'
     },
     multiple_bubbles_h: {
         marginTop:20,
