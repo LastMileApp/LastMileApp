@@ -17,8 +17,8 @@ function Where({ navigation }) {
 	const [mapRegion, setMapRegion] = useState({
 		latitude: 0,
 		longitude: -122.4324,
-		latitudeDelta: 0.0922,
-		longitudeDelta: 0.0421,
+		latitudeDelta: 0.02,
+		longitudeDelta: 0.02,
 	});
 	const [endLocation, setEndLocation] = useState('');
 	const [endLocLatLon, setEndLocLatLon] = useState('');
@@ -29,16 +29,7 @@ function Where({ navigation }) {
 		start = location["coords"]["latitude"] + "," + location["coords"]["longitude"];
 		setLocation(start);
 
-		// console.log("start");
-		// console.log(start);
-		// console.log("end");
-		// console.log(end);
-		// console.log("location");
-		// console.log(location);
-		// console.log("endLocLatLon");
-		// console.log(endLocLatLon);
-
-		navigation.navigate('Packages', { currentLocation: start, endLocLatLon: end });
+		navigation.navigate('PackagesList', { currentLocation: start, endLocLatLon: end });
 	}
 	useEffect(() => {
 		(async () => {
@@ -52,11 +43,11 @@ function Where({ navigation }) {
 				enableHighAccuracy: true,
 				timeInterval: 5
 			});
-			// console.log(location);
+			
 			setLocation(location);
 			a = {
-				latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.0922,
-				longitudeDelta: 0.0421,
+				latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.02,
+				longitudeDelta: 0.02,
 			};
 			setMapRegion(a);
 		})();
@@ -75,14 +66,16 @@ function Where({ navigation }) {
 			<View style={styles.input}>
 
 				<TextInput
+					placeholder="Enter Address"
+					placeholderTextColor={'white'}
 					style={styles.TextIn}
-					placeholder="Full Address"
 					onChangeText={(endLocation) => setEndLocation(endLocation)} />
 
 			</View>
 			<View style={styles.containerMapAndButton}>
 				<View style={styles.containerMap}>
 					<MapView
+						userInterfaceStyle={'dark'}
 						style={{
 							alignSelf: 'stretch',
 							height: '100%',
@@ -111,11 +104,14 @@ const styles = StyleSheet.create({
 		height: 90,
 		fontSize: 35,
 		padding: 5,
-		marginTop: '15%'
+		marginTop: '15%',
+		backgroundColor: "#1a1d27",
+		color: "white",
+		style: "bold",
 	},
 	container: {
 		flex: 1,
-		backgroundColor: "#86CB92",
+		backgroundColor: "#1a1d27",
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
@@ -133,6 +129,8 @@ const styles = StyleSheet.create({
 		top: '20%',
 		marginBottom: '30%',
 		bottom: '20%',
+		borderRadius: 20,
+		overflow: 'hidden',
 		height: '10%',
 	},
 	containerButton: {
@@ -144,13 +142,14 @@ const styles = StyleSheet.create({
 	},
 
 	input: {
-		backgroundColor: '#71b48d',
+		backgroundColor: '#2a2d41',
 		borderRadius: 30,
 		width: "80%",
 		height: 80,
 		marginTop: '20%',
 		marginBottom: '10%',
 		alignItems: "center",
+		color:'white'
 	},
 
 	TextIn: {
@@ -158,6 +157,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 		padding: 30,
 		marginLeft: 0,
+		fontSize:15,
+		color: 'white',
 	},
 
 	forgot_button: {
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 32,
 		borderRadius: 4,
 		elevation: 3,
-		backgroundColor: '#71b48d',
+		backgroundColor: '#20bbff',
 	},
 	text: {
 		fontSize: 16,

@@ -9,13 +9,12 @@ export default function App() {
     <View style={styles.container}>
       <Image source = {require("./assets/lastmileimage.jpg")}/>
       <StatusBar style="auto" />
-      <View style={styles.input}>
+      <View style={style.input}>
         <TextInput
-          style = {styles.TextIn}
+          style = {style.TextIn}
           placeholder = "Username"
           onChangeText={(email) => setEmail(email)} />
-      </View>
-      <View style={styles.input}>
+      </View>      <View style={styles.input}>
         <TextInput 
           style={styles.TextIn}
           placeholder="Password"
@@ -23,16 +22,16 @@ export default function App() {
           onChangeText={(password) => setPassword(password)}
         />
       </View>
-      <TouchableOpacity style={styles.register}>
-        <Text style={styles.loginText}>Register</Text>
+      <TouchableOpacity style={style.register}>
+        <Text style={style.loginText}>Register</Text>
 
       </TouchableOpacity>
 
-      <TouchableOpacity style = {styles.forgot_button}>
+      <TouchableOpacity style = {style.forgot_button}>
         <Text>Forgot Username/Password?</Text>
       </TouchableOpacity>
  
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity styles={styles.loginButton}>
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
     </View>
