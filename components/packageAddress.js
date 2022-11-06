@@ -10,8 +10,6 @@ import { getAddress } from '../services/maps.js';
 import {Icon} from 'react-native-elements'
 export function PackageAddress({ route, navigation }) {
 	const {packagee} = route.params;
-	// console.log(route.Fparams);
-	// console.log("pkg", pkg);
 	
 	const collateral = packagee.collateral;
 
@@ -25,7 +23,6 @@ export function PackageAddress({ route, navigation }) {
 
     useEffect(() => {  
         setPackageSingle(packagee);
-        // console.log(pkg);
 		setCurrentBalance(getBalance());
     });
 	
@@ -33,14 +30,12 @@ export function PackageAddress({ route, navigation }) {
 		(async () => {
 			let start_address = await getAddress(packagee.package_start);
 			setPackageStartAddress(start_address);
-			console.log("start_address", start_address);
 		})();
 	}, []);
 	useEffect(() => {
 		(async () => {
 			let end_address = await getAddress(packagee.package_end);
 			setPackageEndAddress(end_address);
-			console.log("end_address", end_address);
 		})();
 	}, []);
 	useEffect(() => {

@@ -1,24 +1,4 @@
-// import { getDatabase, ref, get, onValue } from "firebase/database";
 
-
-// const db = getDatabase();
-// const dbRef = ref(db, 'shipment');
-
-// shipments=[];
-// function printData(data){
-//     console.log(data);
-// }
-// export function loadShipments(){
-//     onValue(dbRef, (snapshot) => {
-//         const data = snapshot.val();
-//         shipments.push(data);
-//     });
-// }
-// export function shipmentsGet  () {
-//     console.log(shipments);
-//     return shipments;
-    
-// }
 import {db} from "../db/db.js"
 import {getLatLong} from "../services/maps.js"
 import {getMileage, getTimeage} from "../services/maps.js"
@@ -34,7 +14,7 @@ function getProperFormattingLatLon(lat, lon){
 }
 function getBasicShipmentData(shipment){
     const company_id = db["shipment"][shipment]["company_id"]
-    console.log(company_id)
+    
     return {
         "collateral": db["package"][shipment]["collateral"],
         "award": db["shipment"][shipment]["award"],
@@ -61,9 +41,9 @@ export async function getPossibleShipments(user_start, user_end){
     });
 
     let all_shipments = getAllShipments();
-    // console.log(all_shipments);
+    
     for (const s in all_shipments){
-        console.log(s)
+        
         const package_start_lat = db["shipment"][s]["start_point"]["latitude"];
         const package_start_long = db["shipment"][s]["start_point"]["longitude"];
         
@@ -96,9 +76,6 @@ export async function getPossibleShipments(user_start, user_end){
 
         const route_2_t = route_2a_t + route_2b_t + route_2c_t;
 
-        // console.log(route_2a_m, route_2b_m, route_2c_m);    
-        // console.log(route_1_m, route_2_m);
-        // console.log(route_1_t, route_2_t);
         if (Math.abs(route_2_m - route_1_m) <= BUFFER){
             const shipment_data = getBasicShipmentData(s);
             shipment_data["added_miles"] = Math.abs(route_2_m - route_1_m).toFixed(2);
@@ -112,7 +89,5 @@ export async function getPossibleShipments(user_start, user_end){
         }
     }
 
-    console.log("OMG OMG POSSIBLE SHIPMENT??? ");
-    console.log(possible_shipments);
     return possible_shipments;
 }

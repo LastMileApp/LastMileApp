@@ -17,7 +17,7 @@ export function PackageDetails({ route, navigation }) {
     const [markers, setMarkers] = useState({});
     useEffect(() => {
         setPackageSingle(pkg);
-        // console.log(pkg);
+        
     });
     const arr = pkg.user_start.split(',')
 
@@ -28,9 +28,7 @@ export function PackageDetails({ route, navigation }) {
     const pkg_start = { latitude: parseFloat(arr3[0]), longitude: parseFloat(arr3[1]) };
     const arr4 = pkg.package_end.split(',')
     const pkg_end = { latitude: parseFloat(arr4[0]), longitude: parseFloat(arr4[1]) };
-    // onReady = this.map.fitToElements({animated: true});
-    console.log("pkg", pkg);
-    console.log("pkg_gingle", packageSingle);                       
+    // onReady = this.map.fitToElements({animated: true});               
 
 
 

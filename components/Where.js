@@ -29,15 +29,6 @@ function Where({ navigation }) {
 		start = location["coords"]["latitude"] + "," + location["coords"]["longitude"];
 		setLocation(start);
 
-		// console.log("start");
-		// console.log(start);
-		// console.log("end");
-		// console.log(end);
-		// console.log("location");
-		// console.log(location);
-		// console.log("endLocLatLon");
-		// console.log(endLocLatLon);
-
 		navigation.navigate('PackagesList', { currentLocation: start, endLocLatLon: end });
 	}
 	useEffect(() => {
@@ -52,7 +43,7 @@ function Where({ navigation }) {
 				enableHighAccuracy: true,
 				timeInterval: 5
 			});
-			// console.log(location);
+			
 			setLocation(location);
 			a = {
 				latitude: location.coords.latitude, longitude: location.coords.longitude, latitudeDelta: 0.02,
